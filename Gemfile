@@ -6,6 +6,7 @@ gem 'rails', '3.2.9.rc2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'rails-backbone'
 
 
 # Gems used only for assets and not required
