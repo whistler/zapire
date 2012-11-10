@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110221522) do
+ActiveRecord::Schema.define(:version => 20121110223523) do
 
   create_table "faq_answers", :force => true do |t|
     t.string   "answer"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20121110221522) do
 
   create_table "faq_questions", :force => true do |t|
     t.string   "question"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "body"
+    t.integer  "from_id"
+    t.string   "from_type"
+    t.integer  "to_id"
+    t.string   "to_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -45,5 +55,12 @@ ActiveRecord::Schema.define(:version => 20121110221522) do
 
   add_index "operators", ["email"], :name => "index_operators_on_email", :unique => true
   add_index "operators", ["reset_password_token"], :name => "index_operators_on_reset_password_token", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

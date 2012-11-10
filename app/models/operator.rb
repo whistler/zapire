@@ -8,4 +8,9 @@ class Operator < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  def messages
+    Message.where(:from_id => self.id, :from_type=>"Operator") + Message.where(:to_id => self.id, :to_type=>"Operator")
+  end
+
 end
